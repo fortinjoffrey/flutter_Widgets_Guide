@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_guide/shared/constants.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
 }
 
 class HomeList extends StatelessWidget {
-  final _choices = ['List Views', 'SliverList'];
+  final _choices = List.of(mainChoices);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class HomeList extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            // TODO
+            Navigator.of(context).pushNamed(_choices[index].routeName);
           },
           child: Padding(
             padding: EdgeInsets.all(0.0),
@@ -34,11 +35,10 @@ class HomeList extends StatelessWidget {
               child: ListTile(
                 trailing: Icon(Icons.arrow_forward_ios),
                 title: Text(
-                  '${index + 1}. ' + _choices[index],
+                  '${index + 1}. ' + _choices[index].title,
                   style: TextStyle(fontSize: 16.0),
                 ),
               ),
-              // color: Color,
             ),
           ),
         );
