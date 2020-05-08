@@ -11,12 +11,13 @@ class ListViewSimple extends StatefulWidget {
 }
 
 class _ListViewSimpleState extends State<ListViewSimple> {
-  final planets = List.of(planetsTemplate);
-  TextEditingController nameController = TextEditingController();
+  final _planets = List.of(planetsTemplate);
+  final TextEditingController _nameController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   void addItemToList() {
     setState(() {
-      planets.insert(0, Planet(nameController.text, 0));
+      _planets.insert(0, Planet(_nameController.text, 0));
     });
   }
 
@@ -43,7 +44,8 @@ class _ListViewSimpleState extends State<ListViewSimple> {
   Expanded _buildListView() {
     return Expanded(
       child: ListView.builder(
-        itemCount: planets.length,
+        controller: _scrollController,
+        itemCount: _planets.length,
         itemBuilder: (context, index) {
           return Card(
             child: ListTile(
@@ -51,8 +53,8 @@ class _ListViewSimpleState extends State<ListViewSimple> {
                 radius: 25,
                 backgroundColor: Colors.blue[(index + 1) * 100],
               ),
-              title: Text(planets[index].name),
-              subtitle: Text(planets[index].diameter.toString() + ' km'),
+              title: Text(_planets[index].name),
+              subtitle: Text(_planets[index].diameter.toString() + ' km'),
             ),
           );
         },
@@ -67,7 +69,7 @@ class _ListViewSimpleState extends State<ListViewSimple> {
         children: [
           Expanded(
             child: TextField(
-              controller: nameController,
+              controller: _nameController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Planet Name',
@@ -80,6 +82,11 @@ class _ListViewSimpleState extends State<ListViewSimple> {
             onPressed: () {
               addItemToList();
               KeyboardHelper.dismissKeyboard(context);
+              _scrollController.animateTo(
+                0,
+                duration: Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
             },
           ),
         ],
