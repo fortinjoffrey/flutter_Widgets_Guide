@@ -5,3 +5,7 @@ const List<Choice> mainChoices = [
   Choice('List Views', RoutesName.listviews),
   Choice('SliverList TODO', RoutesName.sliverlists),
 ];
+
+const List<Choice> listviewChoices = [
+  Choice('Simple', RoutesName.listviewSimple),
+];
