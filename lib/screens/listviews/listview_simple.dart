@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_guide/models/planet.dart';
 import 'package:widgets_guide/shared/constants.dart';
+import 'package:widgets_guide/shared/keyboard_helpers.dart';
 
 class ListViewSimple extends StatefulWidget {
   ListViewSimple({Key key}) : super(key: key);
@@ -78,6 +79,7 @@ class _ListViewSimpleState extends State<ListViewSimple> {
             child: Icon(Icons.add),
             onPressed: () {
               addItemToList();
+              KeyboardHelper.dismissKeyboard(context);
             },
           ),
         ],
