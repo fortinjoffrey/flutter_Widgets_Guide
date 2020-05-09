@@ -10,6 +10,7 @@ const List<Choice> mainChoices = [
 const List<Choice> listviewChoices = [
   Choice('Simple', RoutesName.listviewSimple),
   Choice('Dismissible', RoutesName.listviewDismissible),
+  Choice('Slidable', RoutesName.listviewSlidable),
 ];
 
 const List<Planet> planetsTemplate = [

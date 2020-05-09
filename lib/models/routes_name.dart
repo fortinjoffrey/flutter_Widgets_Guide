@@ -3,5 +3,6 @@ class RoutesName {
   static const String listviews = '/listviews';
   static const String listviewSimple = '/listviewSimple';
   static const String listviewDismissible = '/listviewDismissible';
+  static const String listviewSlidable = '/listviewSlidable';
   static const String sliverlists = '/sliverlists';
 }
