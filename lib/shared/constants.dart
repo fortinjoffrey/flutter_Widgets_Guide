@@ -9,6 +9,7 @@ const List<Choice> mainChoices = [
 
 const List<Choice> listviewChoices = [
   Choice('Simple', RoutesName.listviewSimple),
+  Choice('Dismissible', RoutesName.listviewDismissible),
 ];
 
 const List<Planet> planetsTemplate = [
