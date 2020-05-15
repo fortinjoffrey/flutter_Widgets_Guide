@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_guide/models/debouncer.dart';
 import 'package:widgets_guide/models/user.dart';
 import 'package:widgets_guide/services/json_services.dart';
 
@@ -12,6 +13,7 @@ class ListViewFilterable extends StatefulWidget {
 class _ListViewFilterableState extends State<ListViewFilterable> {
   List<User> users = List();
   List<User> filteredUsers = List();
+  final _debouncer = Debouncer(milliseconds: 500); // use for delay searching
 
   @override
   void initState() {
@@ -38,14 +40,18 @@ class _ListViewFilterableState extends State<ListViewFilterable> {
               hintText: 'Enter a name or email',
             ),
             onChanged: (string) {
-              setState(() {
-                filteredUsers = users
-                    .where((user) =>
-                        user.name
-                            .toLowerCase()
-                            .contains(string.toLowerCase()) ||
-                        user.email.toLowerCase().contains(string.toLowerCase()))
-                    .toList();
+              _debouncer.run(() {
+                setState(() {
+                  filteredUsers = users
+                      .where((user) =>
+                          user.name
+                              .toLowerCase()
+                              .contains(string.toLowerCase()) ||
+                          user.email
+                              .toLowerCase()
+                              .contains(string.toLowerCase()))
+                      .toList();
+                });
               });
             },
           ),
