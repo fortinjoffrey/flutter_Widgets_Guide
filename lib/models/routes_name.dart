@@ -5,5 +5,6 @@ class RoutesName {
   static const String listviewDismissible = '/listviewDismissible';
   static const String listviewSlidable = '/listviewSlidable';
   static const String listviewReordable = '/listviewReordable';
+  static const String listviewFilterable = '/listviewFilterable';
   static const String sliverlists = '/sliverlists';
 }
