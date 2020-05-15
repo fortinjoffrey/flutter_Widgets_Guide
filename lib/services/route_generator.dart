@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_guide/models/routes_name.dart';
 import 'package:widgets_guide/screens/home.dart';
+import 'package:widgets_guide/screens/listviews/listview_animated.dart';
 import 'package:widgets_guide/screens/listviews/listview_dismissible.dart';
 import 'package:widgets_guide/screens/listviews/listview_filterable.dart';
 import 'package:widgets_guide/screens/listviews/listview_reordable.dart';
@@ -30,6 +31,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ListViewReordable());
       case RoutesName.listviewFilterable:
         return MaterialPageRoute(builder: (_) => ListViewFilterable());
+      case RoutesName.listviewAnimated:
+        return MaterialPageRoute(builder: (_) => ListViewAnimated());
       case RoutesName.sliverlists:
         return MaterialPageRoute(builder: (_) => SliverListsHome());
       default:

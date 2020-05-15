@@ -13,6 +13,7 @@ const List<Choice> listviewChoices = [
   Choice('Slidable', RoutesName.listviewSlidable),
   Choice('Reordable', RoutesName.listviewReordable),
   Choice('Filterable', RoutesName.listviewFilterable),
+  Choice('Animated', RoutesName.listviewAnimated),
 ];
 
 const List<Planet> planetsTemplate = [
