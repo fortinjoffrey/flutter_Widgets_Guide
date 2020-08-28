@@ -8,14 +8,15 @@ class JosKeys {
   static final josKeys2 = GlobalKey();
 }
 
-class BottomNavBarFabEmbed extends StatefulWidget {
-  BottomNavBarFabEmbed({Key key}) : super(key: key);
+class BottomNavBarFabEmbedded extends StatefulWidget {
+  BottomNavBarFabEmbedded({Key key}) : super(key: key);
 
   @override
-  _BottomNavBarFabEmbedState createState() => _BottomNavBarFabEmbedState();
+  _BottomNavBarFabEmbeddedState createState() =>
+      _BottomNavBarFabEmbeddedState();
 }
 
-class _BottomNavBarFabEmbedState extends State<BottomNavBarFabEmbed> {
+class _BottomNavBarFabEmbeddedState extends State<BottomNavBarFabEmbedded> {
   int _currentIndex = 0;
 
   List<Widget> _children = [

@@ -15,6 +15,8 @@ const List<Choice> listviewChoices = [
   Choice('Reordable', RoutesName.listviewReordable),
   Choice('Filterable', RoutesName.listviewFilterable),
   Choice('Animated', RoutesName.listviewAnimated),
+  Choice('Builder no cache', RoutesName.listviewBuilderNoCache),
+  Choice('Builder cache', RoutesName.listviewBuilderCache),
 ];
 
 const List<Choice> bottomNavBarChoices = [

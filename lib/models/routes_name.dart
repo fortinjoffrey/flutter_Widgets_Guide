@@ -7,6 +7,8 @@ class RoutesName {
   static const String listviewReordable = '/listviewReordable';
   static const String listviewFilterable = '/listviewFilterable';
   static const String listviewAnimated = '/listviewAnimated';
+  static const String listviewBuilderNoCache = '/listviewBuilderNoCache';
+  static const String listviewBuilderCache = '/listviewBuilderCache';
   static const String sliverlists = '/sliverlists';
   static const String bottomNavigationBar = '/bottomNavigationBar';
   static const String bottomNavBarFAB = '/bottomNavBarFAB';
