@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_guide/models/routes_name.dart';
-import 'package:widgets_guide/screens/bottom_navigation_bar_home.dart';
+import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_different_state.dart';
+import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab.dart';
+import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab_embed.dart';
+import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_same_state.dart';
+import 'package:widgets_guide/screens/bottom_nav_bar_home.dart';
 import 'package:widgets_guide/screens/home.dart';
 import 'package:widgets_guide/screens/listviews/listview_animated.dart';
 import 'package:widgets_guide/screens/listviews/listview_dismissible.dart';
@@ -37,7 +41,15 @@ class RouteGenerator {
       case RoutesName.sliverlists:
         return MaterialPageRoute(builder: (_) => SliverListsHome());
       case RoutesName.bottomNavigationBar:
-        return MaterialPageRoute(builder: (_) => BottomNavigationBarHome());
+        return MaterialPageRoute(builder: (_) => BottomNavBarHome());
+      case RoutesName.bottomNavBarFAB:
+        return MaterialPageRoute(builder: (_) => BottomNavBarFAB());
+      case RoutesName.bottomNavBarFabEmbed:
+        return MaterialPageRoute(builder: (_) => BottomNavBarFabEmbed());
+      case RoutesName.bottomNavBarSameState:
+        return MaterialPageRoute(builder: (_) => BottomNavBarSameState());
+      case RoutesName.bottomNavBarDifferentState:
+        return MaterialPageRoute(builder: (_) => BottomNavBarDifferentState());
       default:
         return _errorRoute();
     }

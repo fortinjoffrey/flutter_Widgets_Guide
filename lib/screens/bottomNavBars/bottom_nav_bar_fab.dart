@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarHome extends StatefulWidget {
-  BottomNavigationBarHome({Key key}) : super(key: key);
+class BottomNavBarFAB extends StatefulWidget {
+  BottomNavBarFAB({Key key}) : super(key: key);
 
   @override
-  _BottomNavigationBarHomeState createState() =>
-      _BottomNavigationBarHomeState();
+  _BottomNavBarFABState createState() => _BottomNavBarFABState();
 }
 
-class _BottomNavigationBarHomeState extends State<BottomNavigationBarHome> {
+class _BottomNavBarFABState extends State<BottomNavBarFAB> {
   int _currentIndex = 0;
+
   List<Widget> _children = [
     PlaceholderWidget(color: Colors.red),
     PlaceholderWidget(color: Colors.green),
@@ -20,8 +20,6 @@ class _BottomNavigationBarHomeState extends State<BottomNavigationBarHome> {
     return Scaffold(
       appBar: AppBar(title: Text('Bottom navigation bar')),
       bottomNavigationBar: BottomAppBar(
-        notchMargin: 5,
-        shape: CircularNotchedRectangle(),
         color: Colors.white,
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
@@ -40,12 +38,11 @@ class _BottomNavigationBarHomeState extends State<BottomNavigationBarHome> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: _children[_currentIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
       ),
-      body: _children[_currentIndex],
     );
   }
 
@@ -58,13 +55,23 @@ class _BottomNavigationBarHomeState extends State<BottomNavigationBarHome> {
 
 class PlaceholderWidget extends StatelessWidget {
   const PlaceholderWidget({Key key, this.color}) : super(key: key);
+
   final Color color;
 
   @override
   Widget build(BuildContext context) {
-    print('build called');
     return Container(
       color: color,
+      child: Center(
+        child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Simple bottom navigation bar with two bar items',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          ),
+        ),
+      ),
     );
   }
 }

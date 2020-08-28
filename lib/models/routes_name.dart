@@ -9,4 +9,9 @@ class RoutesName {
   static const String listviewAnimated = '/listviewAnimated';
   static const String sliverlists = '/sliverlists';
   static const String bottomNavigationBar = '/bottomNavigationBar';
+  static const String bottomNavBarFAB = '/bottomNavBarFAB';
+  static const String bottomNavBarFabEmbed = '/bottomNavBarFabEmbed';
+  static const String bottomNavBarSameState = '/bottomNavBarSameState';
+  static const String bottomNavBarDifferentState =
+      '/bottomNavBarDifferentState';
 }

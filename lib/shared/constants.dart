@@ -17,6 +17,20 @@ const List<Choice> listviewChoices = [
   Choice('Animated', RoutesName.listviewAnimated),
 ];
 
+const List<Choice> bottomNavBarChoices = [
+  Choice('Bottom Nav Bar + FAB', RoutesName.bottomNavBarFAB,
+      subtitle: 'FloatingButtonAction above bar'),
+  Choice('Bottom Nav Bar + FAB embedded', RoutesName.bottomNavBarFabEmbed,
+      subtitle: 'FloatingButtonAction inside bar'),
+  Choice('Bottom Nav Bar + Shared state', RoutesName.bottomNavBarSameState,
+      subtitle:
+          '2 tabs of same type\nSame state\nNo widget gets destroyed when switching'),
+  Choice(
+      'Bottom Nav Bar + Multiple states', RoutesName.bottomNavBarDifferentState,
+      subtitle:
+          '2 tabs of same type\nDifferent state\nEach widget gets destroyed when switching'),
+];
+
 const List<Planet> planetsTemplate = [
   Planet('Mercury', 4879.4),
   Planet('Venus', 12104),
