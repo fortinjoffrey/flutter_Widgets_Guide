@@ -8,4 +8,5 @@ class RoutesName {
   static const String listviewFilterable = '/listviewFilterable';
   static const String listviewAnimated = '/listviewAnimated';
   static const String sliverlists = '/sliverlists';
+  static const String bottomNavigationBar = '/bottomNavigationBar';
 }

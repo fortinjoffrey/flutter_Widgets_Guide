@@ -5,6 +5,7 @@ import 'package:widgets_guide/models/routes_name.dart';
 const List<Choice> mainChoices = [
   Choice('List Views', RoutesName.listviews),
   Choice('SliverList (coming next)', RoutesName.sliverlists),
+  Choice('Bottom Navigation Bar', RoutesName.bottomNavigationBar),
 ];
 
 const List<Choice> listviewChoices = [
