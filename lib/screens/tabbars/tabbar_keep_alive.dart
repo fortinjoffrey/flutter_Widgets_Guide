@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TabBarNoKeepAlive extends StatelessWidget {
-  const TabBarNoKeepAlive({Key key}) : super(key: key);
+class TabBarKeepAlive extends StatelessWidget {
+  const TabBarKeepAlive({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Tab bar view no keep alive'),
+          title: Text('Tab bar view keep alive'),
         ),
         body: DefaultTabController(
           length: 3,
@@ -35,7 +35,7 @@ class TabBarNoKeepAlive extends StatelessWidget {
                 child: TabBarView(
                   children: [
                     PageTab(title: 'Page 1', color: Colors.red),
-                    PageTab(title: 'Page 2', color: Colors.white70),
+                    PageTab(title: 'Page 2', color: Colors.grey),
                     PageTab(title: 'Page 3', color: Colors.cyan),
                   ],
                 ),
@@ -58,7 +58,7 @@ class PageTab extends StatefulWidget {
   _PageTabState createState() => _PageTabState();
 }
 
-class _PageTabState extends State<PageTab> {
+class _PageTabState extends State<PageTab> with AutomaticKeepAliveClientMixin {
   bool loading = true;
 
   void loadData() async {
@@ -78,6 +78,7 @@ class _PageTabState extends State<PageTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Material(
       color: widget.color,
       child: Center(
@@ -90,9 +91,12 @@ class _PageTabState extends State<PageTab> {
                       widget.title,
                       style: Theme.of(context).textTheme.headline4,
                     ),
-                    Text('The page reinit state each time')
+                    Text('The page does not reinit state each time')
                   ],
                 )),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

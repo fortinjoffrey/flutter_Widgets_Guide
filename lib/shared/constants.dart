@@ -36,6 +36,7 @@ const List<Choice> bottomNavBarChoices = [
 
 const List<Choice> tabBarChoices = [
   Choice('Tab bar no keep alive', RoutesName.tabBarNoKeepAlive),
+  Choice('Tab bar keep alive', RoutesName.tabBarKeepAlive),
 ];
 
 const List<Planet> planetsTemplate = [
