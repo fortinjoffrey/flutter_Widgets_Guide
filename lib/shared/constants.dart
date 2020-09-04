@@ -32,6 +32,12 @@ const List<Choice> bottomNavBarChoices = [
       'Bottom Nav Bar + Multiple states', RoutesName.bottomNavBarDifferentState,
       subtitle:
           '2 tabs of same type\nDifferent state\nEach widget gets destroyed when switching'),
+  Choice(
+    'Bottom Nav Bar Keep Alive',
+    RoutesName.bottomNavBarKeepAlive,
+    subtitle:
+        '3 tabs\nEach widget stay alive when switching\nAll tabs are initiated from the beginning',
+  ),
 ];
 
 const List<Choice> tabBarChoices = [

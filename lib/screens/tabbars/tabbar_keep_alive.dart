@@ -79,6 +79,7 @@ class _PageTabState extends State<PageTab> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    print(widget.title + ' build called');
     return Material(
       color: widget.color,
       child: Center(
