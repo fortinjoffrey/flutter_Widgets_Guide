@@ -3,7 +3,6 @@ import 'package:widgets_guide/models/routes_name.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_different_state.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab_embedded.dart';
-import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_keep_alive.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_same_state.dart';
 import 'package:widgets_guide/screens/bottom_nav_bar_home.dart';
 import 'package:widgets_guide/screens/home.dart';

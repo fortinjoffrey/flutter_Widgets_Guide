@@ -12,7 +12,7 @@ class _ListViewBuilderCacheState extends State<ListViewBuilderCache> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List View Simple'),
+        title: Text('Builder cache'),
       ),
       body: ListView.builder(
         itemCount: 50,
@@ -61,6 +61,7 @@ class _MyFistItemState extends State<MyFistItem>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    print('build called');
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.0, end: 1.0),
       duration: const Duration(seconds: 2),
