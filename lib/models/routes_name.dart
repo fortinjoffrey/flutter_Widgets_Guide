@@ -16,4 +16,6 @@ class RoutesName {
   static const String bottomNavBarSameState = '/bottomNavBarSameState';
   static const String bottomNavBarDifferentState =
       '/bottomNavBarDifferentState';
+  static const String tabBar = '/tabBar';
+  static const String tabBarNoKeepAlive = '/tabBarNoKeepAlive';
 }

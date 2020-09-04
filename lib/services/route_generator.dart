@@ -16,6 +16,8 @@ import 'package:widgets_guide/screens/listviews/listview_simple.dart';
 import 'package:widgets_guide/screens/listviews/listview_slidable.dart';
 import 'package:widgets_guide/screens/listviews_home.dart';
 import 'package:widgets_guide/screens/sliverlists_home.dart';
+import 'package:widgets_guide/screens/tabbar_home.dart';
+import 'package:widgets_guide/screens/tabbars/tabbar_no_keep_alive.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -56,6 +58,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => BottomNavBarSameState());
       case RoutesName.bottomNavBarDifferentState:
         return MaterialPageRoute(builder: (_) => BottomNavBarDifferentState());
+      case RoutesName.tabBar:
+        return MaterialPageRoute(builder: (_) => TabBarHome());
+      case RoutesName.tabBarNoKeepAlive:
+        return MaterialPageRoute(builder: (_) => TabBarNoKeepAlive());
       default:
         return _errorRoute();
     }

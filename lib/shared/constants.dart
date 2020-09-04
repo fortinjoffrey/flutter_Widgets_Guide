@@ -6,6 +6,7 @@ const List<Choice> mainChoices = [
   Choice('List Views', RoutesName.listviews),
   Choice('SliverList (coming next)', RoutesName.sliverlists),
   Choice('Bottom Navigation Bar', RoutesName.bottomNavigationBar),
+  Choice('Tab Bar', RoutesName.tabBar),
 ];
 
 const List<Choice> listviewChoices = [
@@ -31,6 +32,10 @@ const List<Choice> bottomNavBarChoices = [
       'Bottom Nav Bar + Multiple states', RoutesName.bottomNavBarDifferentState,
       subtitle:
           '2 tabs of same type\nDifferent state\nEach widget gets destroyed when switching'),
+];
+
+const List<Choice> tabBarChoices = [
+  Choice('Tab bar no keep alive', RoutesName.tabBarNoKeepAlive),
 ];
 
 const List<Planet> planetsTemplate = [
