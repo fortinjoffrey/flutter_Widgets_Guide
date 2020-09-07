@@ -27,16 +27,26 @@ const List<Choice> bottomNavBarChoices = [
       subtitle: 'FloatingButtonAction inside bar'),
   Choice('Bottom Nav Bar + Shared state', RoutesName.bottomNavBarSameState,
       subtitle:
-          '2 tabs of same type\nSame state\nNo widget gets destroyed when switching'),
+          'State: shared\nInitialisation: 1 initState call\nSwitching: only build calls'),
   Choice(
-      'Bottom Nav Bar + Multiple states', RoutesName.bottomNavBarDifferentState,
-      subtitle:
-          '2 tabs of same type\nDifferent state\nEach widget gets destroyed when switching'),
+    'Bottom Nav Bar + Multiple states',
+    RoutesName.bottomNavBarDifferentState,
+    subtitle:
+        'Initialisation: 1 initState call\nSwitching: init and build calls',
+    solution: SolutionType.Worst,
+  ),
   Choice(
     'Bottom Nav Bar Keep Alive',
     RoutesName.bottomNavBarKeepAlive,
+    subtitle: 'Initialisation: 3 initState calls\nSwitching: no calls',
+    solution: SolutionType.Medium,
+  ),
+  Choice(
+    'Bottom Nav Bar Keep Alive Optimised',
+    RoutesName.bottomNavBarKeepAliveOptimised,
     subtitle:
-        '3 tabs\nEach widget stay alive when switching\nAll tabs are initiated from the beginning',
+        'Initialisation: 1 initState call\nSwitching: initState and build if tab was never displayed',
+    solution: SolutionType.Best,
   ),
 ];
 

@@ -4,6 +4,7 @@ import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_different_sta
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_fab_embedded.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_keep_alive.dart';
+import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_keep_alive_optimised.dart';
 import 'package:widgets_guide/screens/bottomNavBars/bottom_nav_bar_same_state.dart';
 import 'package:widgets_guide/screens/bottom_nav_bar_home.dart';
 import 'package:widgets_guide/screens/home.dart';
@@ -62,6 +63,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => BottomNavBarDifferentState());
       case RoutesName.bottomNavBarKeepAlive:
         return MaterialPageRoute(builder: (_) => BottomNavBarKeepAlive());
+      case RoutesName.bottomNavBarKeepAliveOptimised:
+        return MaterialPageRoute(
+            builder: (_) => BottomNavBarKeepAliveOptimised());
       case RoutesName.tabBar:
         return MaterialPageRoute(builder: (_) => TabBarHome());
       case RoutesName.tabBarNoKeepAlive:

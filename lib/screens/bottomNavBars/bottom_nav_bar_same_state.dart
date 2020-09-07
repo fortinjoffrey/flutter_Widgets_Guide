@@ -18,7 +18,7 @@ class _BottomNavBarSameStateState extends State<BottomNavBarSameState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Bottom navigation bar')),
+      appBar: AppBar(title: Text('Shared state')),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         shape: CircularNotchedRectangle(),
@@ -84,26 +84,41 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
       body: Column(
         children: [
           Expanded(
-            child: Center(
-                child: Text(
-              widget.title,
-              style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
-            )),
-          ),
-          Expanded(
-            child: Center(
-                child: Text(
-              'Counter = $_counter',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: widget.color),
-            )),
+            child: Container(
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    widget.title,
+                    style:
+                        TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Counter = $_counter',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: widget.color),
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: Container(
-              color: Colors.white,
+              width: double.infinity,
               padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Todos and Settings are \'PlaceholderWidget\' type\nThe goal here is to share the same state.\nThis occurs when no keys are provided to the widget\nEach widget is kept alive when switching tabs',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Description',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Todos and Settings are \'PlaceholderWidget\' type\nThe goal here is to share the same stat\nThis occurs when no keys are provided to the widget.',
+                  ),
+                ],
               ),
             ),
           ),

@@ -20,20 +20,43 @@ class BottomNavBarHome extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pushNamed(_choices[index].routeName);
             },
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Card(
-                child: ListTile(
-                  trailing: Icon(Icons.arrow_forward_ios),
-                  title: Text(
-                    _choices[index].title + '\n',
-                    style: TextStyle(fontSize: 16.0),
-                  ),
-                  subtitle: _choices[index].subtitle.isNotEmpty
-                      ? Text(
-                          _choices[index].subtitle,
-                        )
-                      : SizedBox(height: 0),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _choices[index].title,
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    _choices[index].subtitle.isNotEmpty
+                        ? Text(_choices[index].subtitle)
+                        : SizedBox(height: 0),
+                    SizedBox(height: 10.0),
+                    _choices[index].solution != SolutionType.None
+                        ? Center(
+                            child: Text(
+                              _choices[index]
+                                      .solution
+                                      .toString()
+                                      .split('.')
+                                      .last +
+                                  ' solution',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                                color: getColorForSolutionType(
+                                    _choices[index].solution),
+                              ),
+                            ),
+                          )
+                        : SizedBox(height: 0)
+                  ],
                 ),
               ),
             ),
@@ -41,5 +64,18 @@ class BottomNavBarHome extends StatelessWidget {
         },
       ),
     );
+  }
+
+  MaterialColor getColorForSolutionType(SolutionType type) {
+    switch (type) {
+      case SolutionType.Worst:
+        return Colors.red;
+      case SolutionType.Medium:
+        return Colors.blue;
+      case SolutionType.Best:
+        return Colors.green;
+      default:
+        return Colors.black;
+    }
   }
 }

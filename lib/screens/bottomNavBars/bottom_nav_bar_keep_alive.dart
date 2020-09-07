@@ -19,7 +19,7 @@ class _BottomNavBarKeepAliveState extends State<BottomNavBarKeepAlive> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Bottom nav bar keep alive')),
+      appBar: AppBar(title: Text('Keep states alive')),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         shape: CircularNotchedRectangle(),
@@ -86,7 +86,6 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
     print('build called');
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        // heroTag: widget.title,
         heroTag: null,
         child: Icon(Icons.add),
         onPressed: () {
@@ -98,28 +97,57 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
       body: Column(
         children: [
           Expanded(
-            child: Center(
-              child: Text(
-                widget.title,
-                style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text(
-                'Counter = $_counter',
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: widget.color),
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    widget.title,
+                    style:
+                        TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Counter = $_counter',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: widget.color),
+                  ),
+                ],
               ),
             ),
           ),
           Expanded(
             child: Container(
-              color: Colors.white,
               padding: EdgeInsets.all(16.0),
-              child: Text(
-                'State is persisted even on tab switching\nIndexedStack solution\nPotential downside: all widgets are initiated on BottomNavBarKeepAlive creation',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Description',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'State is persisted even on tab switching',
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Solution',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'IndexedStack',
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Downside',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'All widgets are initiated on BottomNavBarKeepAlive creation',
+                  ),
+                ],
               ),
             ),
           ),
@@ -130,7 +158,7 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
 
   @override
   void dispose() {
-    super.dispose();
     print('dispose called');
+    super.dispose();
   }
 }

@@ -1,40 +1,51 @@
 import 'package:flutter/material.dart';
 
-class CustomKeys {
-  static final todosKey = GlobalKey();
-  static final settingsKey = GlobalKey();
-}
-
-class BottomNavBarDifferentState extends StatefulWidget {
-  BottomNavBarDifferentState({Key key}) : super(key: key);
+class BottomNavBarKeepAliveOptimised extends StatefulWidget {
+  BottomNavBarKeepAliveOptimised({Key key}) : super(key: key);
 
   @override
-  _BottomNavBarDifferentStateState createState() =>
-      _BottomNavBarDifferentStateState();
+  _BottomNavBarKeepAliveOptimisedState createState() =>
+      _BottomNavBarKeepAliveOptimisedState();
 }
 
-class _BottomNavBarDifferentStateState
-    extends State<BottomNavBarDifferentState> {
-  int _currentIndex = 0;
-
-  List<Widget> _children = [
-    PlaceholderWidget(
-        color: Colors.red, key: CustomKeys.todosKey, title: 'Todos'),
-    PlaceholderWidget(
-        color: Colors.green, key: CustomKeys.settingsKey, title: 'Settings'),
+class _BottomNavBarKeepAliveOptimisedState
+    extends State<BottomNavBarKeepAliveOptimised> {
+  PageController _pageController = PageController();
+  List<Widget> _pages = [
+    PlaceholderWidget(color: Colors.red, title: 'Todos'),
+    PlaceholderWidget(color: Colors.blue, title: 'Profile'),
+    PlaceholderWidget(color: Colors.green, title: 'Settings'),
   ];
+
+  int _selectedIndex = 0;
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void _onItemTapped(int selectedIndex) {
+    _pageController.jumpToPage(selectedIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Multiple states')),
+      appBar: AppBar(title: Text('Keep states alive optimised')),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         shape: CircularNotchedRectangle(),
         color: Colors.white,
         child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: _handleOnTap,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
           elevation: 0,
           backgroundColor: Colors.transparent,
           items: [
@@ -43,20 +54,23 @@ class _BottomNavBarDifferentStateState
               title: Text("Todos"),
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.face),
+              title: Text("Profile"),
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               title: Text("Settings"),
             ),
           ],
         ),
       ),
-      body: _children[_currentIndex],
+      body: PageView(
+        controller: _pageController,
+        children: _pages,
+        onPageChanged: _onPageChanged,
+        physics: NeverScrollableScrollPhysics(),
+      ),
     );
-  }
-
-  void _handleOnTap(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
   }
 }
 
@@ -69,20 +83,23 @@ class PlaceholderWidget extends StatefulWidget {
   _PlaceholderWidgetState createState() => _PlaceholderWidgetState();
 }
 
-class _PlaceholderWidgetState extends State<PlaceholderWidget> {
+class _PlaceholderWidgetState extends State<PlaceholderWidget>
+    with AutomaticKeepAliveClientMixin {
   int _counter = 0;
 
   @override
   void initState() {
     super.initState();
-    print('initState called');
+    print(widget.title + ' initState called');
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     print('build called');
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        heroTag: null,
         child: Icon(Icons.add),
         onPressed: () {
           setState(() {
@@ -125,7 +142,16 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    'Each widget has its own key, therefore its own state',
+                    'State is persisted even on tab switching',
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Solution',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'PageController',
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -134,7 +160,7 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    'Each gets dispose when switching tabs\nThat\'s a problem if you want to keep the widget state alive',
+                    'Widgets are initiated if tapped',
                   ),
                 ],
               ),
@@ -147,7 +173,10 @@ class _PlaceholderWidgetState extends State<PlaceholderWidget> {
 
   @override
   void dispose() {
+    print(widget.title + ' dispose called');
     super.dispose();
-    print('dispose called');
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
