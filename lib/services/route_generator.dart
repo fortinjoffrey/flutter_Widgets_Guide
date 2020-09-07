@@ -17,6 +17,8 @@ import 'package:widgets_guide/screens/listviews/listview_reordable.dart';
 import 'package:widgets_guide/screens/listviews/listview_simple.dart';
 import 'package:widgets_guide/screens/listviews/listview_slidable.dart';
 import 'package:widgets_guide/screens/listviews_home.dart';
+import 'package:widgets_guide/screens/pageview_home.dart';
+import 'package:widgets_guide/screens/pageviews/pageview_simple.dart';
 import 'package:widgets_guide/screens/sliverlists_home.dart';
 import 'package:widgets_guide/screens/tabbar_home.dart';
 import 'package:widgets_guide/screens/tabbars/tabbar_keep_alive.dart';
@@ -72,6 +74,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TabBarNoKeepAlive());
       case RoutesName.tabBarKeepAlive:
         return MaterialPageRoute(builder: (_) => TabBarKeepAlive());
+      case RoutesName.pageView:
+        return MaterialPageRoute(builder: (_) => PageViewHome());
+      case RoutesName.pageViewSimple:
+        return MaterialPageRoute(builder: (_) => PageViewSimple());
       default:
         return _errorRoute();
     }

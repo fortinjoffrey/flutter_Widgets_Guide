@@ -7,6 +7,7 @@ const List<Choice> mainChoices = [
   Choice('SliverList (coming next)', RoutesName.sliverlists),
   Choice('Bottom Navigation Bar', RoutesName.bottomNavigationBar),
   Choice('Tab Bar', RoutesName.tabBar),
+  Choice('Page View', RoutesName.pageView),
 ];
 
 const List<Choice> listviewChoices = [
@@ -53,6 +54,10 @@ const List<Choice> bottomNavBarChoices = [
 const List<Choice> tabBarChoices = [
   Choice('Tab bar no keep alive', RoutesName.tabBarNoKeepAlive),
   Choice('Tab bar keep alive', RoutesName.tabBarKeepAlive),
+];
+
+const List<Choice> pageViewChoices = [
+  Choice('Page View Simple', RoutesName.pageViewSimple),
 ];
 
 const List<Planet> planetsTemplate = [

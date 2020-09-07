@@ -22,4 +22,7 @@ class RoutesName {
   static const String tabBar = '/tabBar';
   static const String tabBarNoKeepAlive = '/tabBarNoKeepAlive';
   static const String tabBarKeepAlive = '/tabBarKeepAlive';
+
+  static const String pageView = '/pageView';
+  static const String pageViewSimple = '/pageViewSimple';
 }
