@@ -2,9 +2,16 @@
 
 This project covers some useful Flutter widgets to help for future app development
 
-## Widgets covered :
+## 📝 Table of Contents  
+- [List View](#listview)
+- [SliverList](#sliverlist)
+- [Bottom Navigation Bar](#bottomnavigationbar)
+- [Tab Bar](#tabbar)
+- [Page View](#pageview)
 
-#### List Views
+<a name="listview"/>
+
+## List View
 - Simple list view
 - Dismissible cells
 - Slidable cells
@@ -12,8 +19,31 @@ This project covers some useful Flutter widgets to help for future app developme
 - Filterable cells
 - Animated cells
 
-#### Sliver Lists (coming next)
+<a name="sliverlist"/>
 
-## Demo
+## Sliver List
+- Coming soon
 
-<img src="demo/demo.gif" width="35%"/>
+<a name="bottomnavigationbar"/>
+
+## Bottom Navigation Bar (BNB)
+- BNB + FloatingActionButton
+- BNB + FloatingActionButton embedded in
+- BNB + Shared state between tabs
+- BNB + Multiple states
+- BNB + Multiple states w/ states kept alive
+- BNB + Multiple states w/ states kept alive (optimised)
+
+<a name="tabbar"/>
+
+## Tab Bar (TB)
+- TB standard (coming soon)
+- TB + Multiple states
+- TB + Multiple states w/ states kept alive
+
+<a name="pageview"/>
+
+## Page View (PV)
+- PV standard (coming soon)
+- PV + Advanced w/ non fullscreen pages & axis toggling
+- PV + page indicator w/ prev/next button
