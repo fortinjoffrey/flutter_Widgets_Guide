@@ -40,11 +40,11 @@ class _BottomNavBarDifferentStateState
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.list),
-              title: Text("Todos"),
+              label: 'Todos',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              title: Text("Settings"),
+              label: 'Settings',
             ),
           ],
         ),

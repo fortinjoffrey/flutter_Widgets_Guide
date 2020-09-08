@@ -51,15 +51,15 @@ class _BottomNavBarKeepAliveOptimisedState
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.list),
-              title: Text("Todos"),
+              label: 'Todos',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.face),
-              title: Text("Profile"),
+              label: 'Profile',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              title: Text("Settings"),
+              label: 'Settings',
             ),
           ],
         ),

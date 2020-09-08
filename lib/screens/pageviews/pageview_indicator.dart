@@ -58,8 +58,6 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    final Size _screenSize = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Page view indicator'),
