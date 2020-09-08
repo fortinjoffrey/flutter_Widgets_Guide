@@ -58,6 +58,7 @@ const List<Choice> tabBarChoices = [
 
 const List<Choice> pageViewChoices = [
   Choice('Page View Simple', RoutesName.pageViewSimple),
+  Choice('Page View Indicator', RoutesName.pageViewIndicator),
 ];
 
 const List<Planet> planetsTemplate = [

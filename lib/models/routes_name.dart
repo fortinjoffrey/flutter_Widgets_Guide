@@ -25,4 +25,5 @@ class RoutesName {
 
   static const String pageView = '/pageView';
   static const String pageViewSimple = '/pageViewSimple';
+  static const String pageViewIndicator = '/pageViewIndicator';
 }
