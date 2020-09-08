@@ -14,6 +14,8 @@ class PageViewSimple extends StatefulWidget {
 }
 
 class _PageViewSimpleState extends State<PageViewSimple> {
+  Axis _scrollDirection = Axis.horizontal;
+
   final List<String> images = [
     eiffelTower,
     colosseum,
@@ -38,8 +40,23 @@ class _PageViewSimpleState extends State<PageViewSimple> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Page view simple'),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              setState(() {
+                _scrollDirection = _scrollDirection == Axis.horizontal
+                    ? Axis.vertical
+                    : Axis.horizontal;
+              });
+            },
+            child: _scrollDirection == Axis.horizontal
+                ? Icon(Icons.swap_vert)
+                : Icon(Icons.swap_horiz),
+          )
+        ],
       ),
       body: PageView.builder(
+        scrollDirection: _scrollDirection,
         controller: _pageController,
         itemCount: images.length,
         itemBuilder: (context, index) {
